@@ -1,0 +1,12 @@
+html {
+    font-family: var(--font-family-main), sans-serif;
+    font-weight: 300;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    caret-color: transparent;
+}
