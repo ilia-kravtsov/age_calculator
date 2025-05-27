@@ -1,7 +1,7 @@
 import {type ChangeEvent, useState } from 'react';
 import s from './AgeCalculator.module.scss';
 import {Display} from "../Display/Display.tsx";
-import {clampToRange, isValidDate, sanitizeInput} from "./utils.ts";
+import {clampToRange, isDateInputLengthValid, isValidDate, sanitizeInput} from "./utils.ts";
 import {DateInput} from "../DateInput/DateInput.tsx";
 
 export interface IDate {
@@ -16,6 +16,10 @@ export default function AgeCalculator() {
 	const [error, setError] = useState('');
 
 	const calculateAge = () => {
+		if (!isDateInputLengthValid(date)) {
+			setError('Формат даты 31 12 1991');
+			return;
+		}
 		setError('');
 		const birthDay = parseInt(date.day, 10);
 		const birthMonth = parseInt(date.month, 10);
@@ -80,7 +84,7 @@ export default function AgeCalculator() {
 	};
 
 	const handleYearBlur = () => {
-		if (date.year === '') return;
+		if (date.year === '' || date.year.length < 4) return;
 
 		const currentYear = new Date().getFullYear();
 
@@ -89,12 +93,14 @@ export default function AgeCalculator() {
 		setDate(prev => ({ ...prev, year: clamped }));
 	};
 
+	const isDisabled = !isDateInputLengthValid(date)
+
 	return (
 		<div className={s.container}>
-			<div className={s.card}>
+			<div className={s.calculator}>
 				<Display age={age} error={error}/>
 
-				<div className={s.card__inputsBox}>
+				<div className={s.calculator__inputsBox}>
 					<DateInput
 						value={date.day}
 						onChange={handleDayChange}
@@ -115,7 +121,12 @@ export default function AgeCalculator() {
 					/>
 				</div>
 
-				<button className={s.card__button} onClick={calculateAge}>Узнать возраст</button>
+				<button className={s.calculator__button}
+								onClick={calculateAge}
+								disabled={isDisabled}
+				>
+					Узнать возраст
+				</button>
 			</div>
 		</div>
 	);

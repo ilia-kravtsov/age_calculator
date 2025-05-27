@@ -1,6 +1,7 @@
 .input {
   height: 200px;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   padding: 8px;
   border-radius: 6px;
   box-shadow: var(--shadow-color);
@@ -19,6 +20,14 @@
     font-weight: var(--font-weight-extra-light);
     font-family: var(--font-family-main), sans-serif;
     font-size: var(--font-size-normal);
+
+    @media(max-width: 1000px) {
+      font-size: var(--font-size-smaller);
+    }
+
+    @media(max-width: 400px) {
+      font-size: var(--font-size-small);
+    }
   }
 
   &:focus {
@@ -31,5 +40,18 @@
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media(max-width: 1000px) {
+    font-size: var(--font-size-smaller);
+  }
+
+  @media(max-width: 800px) {
+    max-width: 100%;
+  }
+
+  @media(max-width: 400px) {
+    height: 150px;
+    font-size: var(--font-size-small);
   }
 }

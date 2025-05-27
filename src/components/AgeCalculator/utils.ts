@@ -1,4 +1,5 @@
 import type {ChangeEvent} from "react";
+import type {IDate} from "./AgeCalculator.tsx";
 
 export function isValidDate(day: number, month: number, year: number): { valid: boolean; error: null | string } {
 	if (isNaN(day) || isNaN(month) || isNaN(year)) {
@@ -35,3 +36,12 @@ export function clampToRange(val: string, min: number, max: number): string {
 	if (num > max) return max.toString();
 	return String(num);
 }
+
+export function isDateInputLengthValid(date: IDate): boolean {
+	return (
+		date.day.length >= 1 && date.day.length <= 2 &&
+		date.month.length >= 1 && date.month.length <= 2 &&
+		date.year.length === 4
+	);
+}
+
