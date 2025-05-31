@@ -13,7 +13,7 @@
   border: none;
   outline: none;
   text-align: center;
-  transition: transform var(--animation-time);
+  transition: transform var(--animation-time), outline 0.15s ease-in-out;
 
   &::placeholder {
     color: var(--font-main-color);
@@ -39,6 +39,14 @@
   &:focus,
   &:focus-visible {
     transform: scale(1.05);
+
+    @media(max-width: 425px) {
+      transform: none;
+      outline: 5px outset var(--accent-color-sub);
+      @supports not (outline: 5px outset var(--accent-color-sub)) {
+        outline: 5px solid var(--accent-color-sub);
+      }
+    }
   }
 
   &:hover {
