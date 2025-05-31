@@ -21,7 +21,7 @@
     font-weight: var(--font-weight-extra-light);
     font-family: var(--font-family-main), sans-serif;
     font-size: var(--font-size-big);
-    line-height: var(--font-size-big);
+    line-height: normal;
 
     @media(max-width: 1024px) {
       font-size: var(--font-size-normal);
