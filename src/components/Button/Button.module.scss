@@ -15,12 +15,8 @@
           transform var(--animation-time),
           background-color var(--animation-time),
           box-shadow 0.2s ease;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-
-  &:hover:not(:disabled) {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transform: translateY(-4px);
-  }
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
 
   &:active:not(:disabled) {
     transform: scale(0.99) translateY(0);
