@@ -22,6 +22,7 @@
     font-family: var(--font-family-main), sans-serif;
     font-size: var(--font-size-big);
     line-height: normal;
+    opacity: 0.6;
 
     @media(max-width: 1024px) {
       font-size: var(--font-size-normal);
@@ -33,6 +34,7 @@
 
     @media(max-width: 425px) {
       font-size: var(--font-size-smallest);
+      font-weight: var(--font-weight-regular);
     }
   }
 
@@ -41,11 +43,7 @@
     transform: scale(1.05);
 
     @media(max-width: 425px) {
-      transform: none;
-      outline: 5px outset var(--accent-color-sub);
-      @supports not (outline: 5px outset var(--accent-color-sub)) {
-        outline: 5px solid var(--accent-color-sub);
-      }
+      transform: scale(1.1);
     }
   }
 
@@ -72,5 +70,6 @@
     height: 80px;
     max-width: 100%;
     font-size: var(--font-size-smallest);
+    font-weight: var(--font-weight-light);
   }
 }
