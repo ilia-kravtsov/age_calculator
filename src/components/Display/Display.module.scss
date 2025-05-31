@@ -12,7 +12,7 @@
   .display {
     height: 100%;
     width: 100%;
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-big);
     font-weight: var(--font-weight-extra-light);
     display: flex;
     justify-content: center;
@@ -23,11 +23,15 @@
     transition: opacity 0.4s ease, transform 0.4s ease;
 
     @media(max-width: 1000px) {
+      font-size: var(--font-size-normal);
+    }
+
+    @media(max-width: 768px) {
       font-size: var(--font-size-smaller);
     }
 
-    @media(max-width: 400px) {
-      font-size: var(--font-size-small);
+    @media(max-width: 425px) {
+      font-size: var(--font-size-smallest);
     }
   }
 
@@ -36,8 +40,11 @@
     transform: translateY(0);
   }
 
-  @media(max-width: 400px) {
-    font-size: var(--font-size-small);
+  @media(max-width: 768px) {
     min-height: 150px;
+  }
+
+  @media(max-width: 425px) {
+    min-height: 100px;
   }
 }

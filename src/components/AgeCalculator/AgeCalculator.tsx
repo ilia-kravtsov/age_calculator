@@ -3,6 +3,7 @@ import s from './AgeCalculator.module.scss';
 import {Display} from "../Display/Display.tsx";
 import {clampToRange, isDateInputLengthValid, isValidDate, sanitizeInput} from "./utils.ts";
 import {DateInput} from "../DateInput/DateInput.tsx";
+import {Button} from "../Button/Button.tsx";
 
 export interface IDate {
 	day: string;
@@ -105,28 +106,25 @@ export default function AgeCalculator() {
 						value={date.day}
 						onChange={handleDayChange}
 						onBlur={handleDayBlur}
-						placeholder={`День 31`}
+						placeholder={`31`}
 					/>
 					<DateInput
 						value={date.month}
 						onChange={handleMonthChange}
 						onBlur={handleMonthBlur}
-						placeholder={`Месяц 12`}
+						placeholder={`12`}
 					/>
 					<DateInput
 						value={date.year}
 						onChange={handleYearChange}
 						onBlur={handleYearBlur}
-						placeholder={`Год 1991`}
+						placeholder={`1991`}
 					/>
 				</div>
-
-				<button className={s.calculator__button}
-								onClick={calculateAge}
-								disabled={isDisabled}
-				>
-					Узнать возраст
-				</button>
+				<Button title={'Узнать возраст'}
+								onClickCB={calculateAge}
+								isDisabled={isDisabled}
+				/>
 			</div>
 		</div>
 	);
