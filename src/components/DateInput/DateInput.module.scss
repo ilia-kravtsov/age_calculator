@@ -4,7 +4,7 @@
   width: 100%;
   padding: 8px;
   border-radius: 6px;
-  box-shadow: var(--shadow-color);
+  box-shadow: var(--shadow);
   color: var(--font-main-color);
   font-weight: var(--font-weight-extra-light);
   font-size: var(--font-size-big);
@@ -13,7 +13,7 @@
   border: none;
   outline: none;
   text-align: center;
-  transition: transform var(--animation-time), outline 0.15s ease-in-out;
+  transition: box-shadow var(--animation-time);
 
   &::placeholder {
     color: var(--font-main-color);
@@ -40,11 +40,10 @@
 
   &:focus,
   &:focus-visible {
-    transform: scale(1.05);
+    box-shadow: 0 1px 3px var(--shadow-color);
 
-    @media(max-width: 425px) {
-      transform: none;
-      outline: 5px solid var(--accent-color-sub);
+    @media (max-width: 425px) {
+      box-shadow: 0 1px 3px var(--shadow-color);
     }
   }
 

@@ -11,19 +11,26 @@
   font-weight: var(--font-weight-extra-light);
   font-size: var(--font-size-big);
   font-family: var(--font-family-main), sans-serif;
-  transition: transform var(--animation-time), background-color var(--animation-time);
+  transition:
+          transform var(--animation-time),
+          background-color var(--animation-time),
+          box-shadow 0.2s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 
   &:hover:not(:disabled) {
-    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px);
   }
 
   &:active:not(:disabled) {
-    transform: scale(1);
+    transform: scale(0.99) translateY(0);
+    box-shadow: 0 4px 10px var(--shadow-color);
   }
 
   &:disabled {
     background-color: var(--accent-color-sub);
     pointer-events: none;
+    box-shadow: none;
   }
 
   @media(max-width: 1000px) {

@@ -16,6 +16,7 @@
   --font-size-small: 30px;
   --font-size-smaller: 25px;
   --font-size-smallest: 20px;
-  --shadow-color: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --shadow-color: #00000019;
+  --shadow: 0 4px 14px var(--shadow-color);
   --animation-time: 0.2s ease-in-out;
 }
